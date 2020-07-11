@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <span>Home Screen</span>
+    <div class="header">
+        <span>This is header</span>
     </div>
 </template>
 

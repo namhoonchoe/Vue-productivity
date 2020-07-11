@@ -1,13 +1,12 @@
 # Vue-productivity
+
 Productivity app with vue js
 
+## Kanban Board
+  - [ ] kanban board
+  - [ ] drag and drop
+  - [ ] send Todos
 
-Kanban Board
-   [] kanban board
-   [] drag and drop
-   [] send Todos
-
-Pomodoro Timer
-   [] pomodoro
-   [] resttime
-   [] cycle 
+## Pomodoro Timer
+  - [ ] resttime
+  - [ ] cycle 
