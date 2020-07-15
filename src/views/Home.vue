@@ -1,15 +1,32 @@
 <template>
     <div>
-        <span>Home Screen</span>
+        <body>
+            Home Screen
+            <UserName/>
+            <Clock/>
+        </body>
+        <section class="navigation"> 
+          <Navigation/>
+        </section>
     </div>
 </template>
 
 <script>
-export default {
+import Navigation from '../components/Navigation.vue'
+import UserName from '../components/UserName.vue'
+import Clock from '../components/Clock.vue'
 
+
+export default {
+  name: 'App',
+  components: {
+    Navigation,
+    UserName,
+    Clock
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
+  
 </style>

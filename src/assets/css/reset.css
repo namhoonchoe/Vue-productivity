@@ -39,10 +39,29 @@ blockquote, q {
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
+	content: "";
 	content: none;
 }
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* #region custom */
+ *, *:before, *:after {
+	box-sizing: border-box;
+}
+body {
+	word-wrap: break-word;
+}
+a {
+	text-decoration: none;
+}
+img {
+	max-width: 100%;
+	vertical-align: middle;
+}
+body, input, textarea, select, button {
+	font-family: -apple-system, Roboto, Helvetica, Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+/* #endregion custom */
