@@ -1,6 +1,6 @@
 <template>
     <div class="clockContainer">
-        {{hours}}:{{minutes}}:{{hoursystem}}
+        {{hours}}:{{minutes}}
     </div>
 </template>
 
@@ -8,9 +8,9 @@
 export default {
     data() {
         return {
-          hours:'__',
-          minutes:'__',
-          hoursystem:'__'
+          hours:'',
+          minutes:'',
+          seconds:'',
         }
     },
     computed:{
@@ -18,10 +18,15 @@ export default {
     },
     methods:{
         getTime() {
-            return {
-
-            }
+            const date = new Date
+            this.hours = date.getHours(),
+            this.minutes = date.getMinutes()
         }
+    },
+
+    mounted() {
+        this.clock = setInterval(this.getTime,1000)
+       
     }
 }
 </script>

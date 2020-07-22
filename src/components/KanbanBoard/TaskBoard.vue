@@ -7,7 +7,10 @@
             <p>tasks</p>
         </ul>
         <div class="add-task">
-            <input type="text" placeholder="Add Your task">
+           <input type="text" placeholder="Add Your task">
+           <span class="material-icons">
+             add_box
+           </span>            
         </div>
     </div>
 </template>
@@ -21,7 +24,7 @@ export default {
 <style scoped>
     .board {
         display:block;
-        border: 1px black solid;
+        border: 2px green solid;
         border-radius: 5px;
     }
 

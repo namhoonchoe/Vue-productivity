@@ -26,6 +26,7 @@ export default {
     .boards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        margin: 10px 20px;
         gap: 20px;
     }
 
