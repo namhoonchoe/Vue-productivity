@@ -1,31 +1,40 @@
 <template>
     <div class="clockContainer">
-        {{hours}}:{{minutes}}
+      {{hourContainer}}:{{minutesContainer}}:{{hoursystem}}
     </div>
 </template>
 
 <script>
 export default {
     data() {
-        return {
-          hours:'',
-          minutes:'',
-          seconds:'',
-        }
+      return {
+        hours:'',
+        minutes:'',
+        hoursystem:'',
+      }
     },
     computed:{
-        
+      hourContainer(){
+        return this.hours > 10 ? (this.hours) : (`0${this.hours}`) 
+      },
+      minutesContainer(){
+        return  this.minutes > 10 ? (this.minutes) : (`0${this.minutes}`) 
+      }
     },
     methods:{
-        getTime() {
-            const date = new Date
-            this.hours = date.getHours(),
-            this.minutes = date.getMinutes()
-        }
+      getTime() {
+          const date = new Date
+          this.hours = date.getHours(),
+          this.minutes = date.getMinutes()
+      }
     },
-
+    watch:{
+      hours(now){
+        now > 12 ? (this.hoursystem = "PM") : (this.hoursystem = "AM")
+      }
+    },
     mounted() {
-        this.clock = setInterval(this.getTime,1000)
+      this.clock = setInterval(this.getTime,1000)
        
     }
 }
