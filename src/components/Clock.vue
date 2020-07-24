@@ -15,10 +15,10 @@ export default {
     },
     computed:{
       hourContainer(){
-        return this.hours > 10 ? (this.hours) : (`0${this.hours}`) 
+        return this.hours > 9 ? (this.hours) : (`0${this.hours}`) 
       },
       minutesContainer(){
-        return  this.minutes > 10 ? (this.minutes) : (`0${this.minutes}`) 
+        return  this.minutes > 9 ? (this.minutes) : (`0${this.minutes}`) 
       }
     },
     methods:{

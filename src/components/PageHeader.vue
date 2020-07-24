@@ -5,7 +5,7 @@
         <Navigation/>
       </section>
       <section class="header__column">
-        <UserName/>        
+        <Weather/>
         <Clock/>
       </section>
   </header>
@@ -14,13 +14,13 @@
 
 <script>
 import Navigation from './Navigation.vue'
-import UserName from './UserName.vue'
 import Clock from './Clock.vue'
+import Weather from './Weather.vue'
 
 export default {
     components:{
         Navigation,
-        UserName,
+        Weather,
         Clock
     }
 }

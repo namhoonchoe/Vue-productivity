@@ -2,7 +2,7 @@
     <div>
         <body>
             Home Screen
-            <UserName/>
+            <Weather/>
             <Clock/>
         </body>
         <section class="navigation"> 
@@ -13,15 +13,14 @@
 
 <script>
 import Navigation from '../components/Navigation.vue'
-import UserName from '../components/UserName.vue'
 import Clock from '../components/Clock.vue'
-
+import Weather from '../components/Weather.vue'
 
 export default {
   name: 'App',
   components: {
     Navigation,
-    UserName,
+    Weather,
     Clock
   }
 }

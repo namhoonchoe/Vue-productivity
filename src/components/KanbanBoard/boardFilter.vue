@@ -1,5 +1,5 @@
 <template>
-    <p>Write user name here</p>
+    <div></div>
 </template>
 
 <script>
