@@ -5,7 +5,7 @@
         </header>
         <body>
             <section class="timer">
-              <p>Timer</p>
+              <Timer/>
             </section>
             <section class="work-in-progrss">
                 <TaskBoard/>
@@ -17,10 +17,11 @@
 <script>
 import pageheader from '../components/PageHeader.vue'
 import TaskBoard from '../components/KanbanBoard/TaskBoard.vue'
-
+import Timer from '../components/PomodoroTimer/Timer.vue'
 export default {
     components: {
         pageheader,
+        Timer,
         TaskBoard
     }
 }

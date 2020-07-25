@@ -6,7 +6,7 @@
       </section>
       <section class="header__column">
         <Weather/>
-        <Clock/>
+        <clockContainer/>
       </section>
   </header>
   </div>
@@ -14,14 +14,14 @@
 
 <script>
 import Navigation from './Navigation.vue'
-import Clock from './Clock.vue'
+import clockContainer from './clockContainer.vue'
 import Weather from './Weather.vue'
 
 export default {
     components:{
         Navigation,
         Weather,
-        Clock
+        clockContainer
     }
 }
 </script>

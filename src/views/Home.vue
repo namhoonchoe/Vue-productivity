@@ -3,7 +3,7 @@
         <body>
             Home Screen
             <Weather/>
-            <Clock/>
+            <clockContainer/>
         </body>
         <section class="navigation"> 
           <Navigation/>
@@ -13,7 +13,7 @@
 
 <script>
 import Navigation from '../components/Navigation.vue'
-import Clock from '../components/Clock.vue'
+import clockContainer from '../components/clockContainer.vue'
 import Weather from '../components/Weather.vue'
 
 export default {
@@ -21,7 +21,7 @@ export default {
   components: {
     Navigation,
     Weather,
-    Clock
+    clockContainer
   }
 }
 </script>
