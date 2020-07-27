@@ -8,6 +8,7 @@ const state = {
     timer:null,
     startTimer:false,
    }
+
 const getters = {
     displayTime(state) {
         let min = Math.floor(state.time[state.status]/60);
@@ -15,6 +16,7 @@ const getters = {
         return  `${min  < 10 ? 0:''}${min}:${sec < 10 ? 0:''}${sec}`;
     }
    }
+
 const mutations = {
     updateStatus(state, payload) {
         state.status = payload;
@@ -38,7 +40,6 @@ const mutations = {
         state.time.rest = 300;
     },    
    }
-
 
 export default {
     namespaced:true,
