@@ -1,19 +1,25 @@
-class Todo {
-    constructor({title = '', status = 'todo'}) {
+class Task {
+    constructor({title = '', status = ''}) {
         this.title = title;
         this.id = Date.now() + Math.random()
         this.status = status;
     }
 }
 
-const todos = window.localStorage.getItem('todos');
+const tasks = window.localStorage.getItem('tasks');
 
-const defaultState = todos ? JSON.parse(todos) : [];
+const defaultState = tasks 
+    ? JSON.parse(tasks) 
+    : [
+        new Task({ title: "JavaScript" }),
+        new Task({ title: "Vue.js" }),
+        new Task({ title: "Vuex" })
+    ];
 
 const saveStorage = store => {
     store.subscribe((mutation, state) => {
-        window.localStorage.setItem("todos",JSON.stringify)
+        window.localStorage.setItem("tasks",JSON.stringify(state.tasks))
     });
 };
 
-export {Todo,defaultState,saveStorage};
+export {Task,defaultState,saveStorage};

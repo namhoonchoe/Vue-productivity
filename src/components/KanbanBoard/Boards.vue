@@ -1,23 +1,31 @@
 <template>
     <div class="boards">
-        <section class="todo">
-           <TaskBoard/>
+        <section class="Todo">
+           <taskList v-bind:boardState = Todo />
         </section>
-        <section class="in-progress">
-           <TaskBoard/>
+        <section class="inProgress">
+           <taskList v-bind:boardState = inProgress />
         </section>
-        <section class="done">
-           <TaskBoard/>
+        <section class="completed">
+           <taskList  v-bind:boardState = completed />
        </section>
     </div>
 </template>
 
 <script>
-import TaskBoard from './TaskBoard.vue'
+import { mapState } from 'vuex';
+import taskList from './taskList.vue';
 
 export default {
     components: {
-        TaskBoard
+        taskList
+    },
+    computed:{
+        ...mapState('Tasks',[
+            'Todo',
+            'inProgress',
+            'completed'
+        ])
     }
 }
 </script>

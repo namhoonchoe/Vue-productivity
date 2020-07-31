@@ -7,8 +7,8 @@
             <section class="timer">
               <Timer/>
             </section>
-            <section class="work-in-progrss">
-                <TaskBoard/>
+            <section class="inProgrss">
+                <taskList/>
             </section>
         </body>
     </div>
@@ -16,13 +16,13 @@
 
 <script>
 import pageheader from '../components/PageHeader.vue'
-import TaskBoard from '../components/KanbanBoard/TaskBoard.vue'
+import taskList from '../components/KanbanBoard/taskList.vue'
 import Timer from '../components/PomodoroTimer/Timer.vue'
 export default {
     components: {
         pageheader,
         Timer,
-        TaskBoard
+        taskList
     }
 }
 </script>

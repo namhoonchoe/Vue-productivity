@@ -1,57 +1,57 @@
-import {Todo,defaultState,saveStorage} from './defaultState.js';
+import { Task,defaultState,saveStorage } from './defaultState.js';
 import Vue from 'vue'
 
 const plugins = [saveStorage]
 
 const state = {
-    todos:defaultState,
-    
+    tasks:defaultState,
+    filterType:"total"
 }
 
 const getters = {
-    todos(state) {
+    tasks(state) {
         switch (state.filterType){
           case "completed":
-            return state.todos.filter(todo => todo.completed);
+            return state.tasks.filter(task => task.completed);
           case "inProgress":
-            return state.todos.filter(todo => todo.inProgress);
+            return state.tasks.filter(task => task.inProgress);
           default:
-            return state.todos;
+            return state.tasks;
         } 
     },
 
     countTotal(state) {
-        return state.todos.length;
+        return state.tasks.length;
     },
-    
+
     countInprogress(state) {
-        return state.todos.filter(todo => todo.inProgress).length;
+        return state.tasks.filter(task => task.inProgress).length;
     },
-    
+
     countCompleted(state) {
-        return state.todos.filter(todo => todo.completed).length;
+        return state.tasks.filter(task => task.completed).length;
     }
 }
 
 const mutations = {
-    SET_CHANGE_TODO(state,payload) {
+    SET_CHANGE_TASK(state,payload) {
       const { index, ...rest } = payload;
       
-      const todo = {
-        ...state.todos[index],
+      const task = {
+        ...state.tasks[index],
         ...rest
       };
 
-      Vue.set(state.todos, index, todo);
+      Vue.set(state.tasks, index, task);
     },
 
-    REMOVE_TODO(state, index) {
-      Vue.delete(state.todos, index);
+    REMOVE_TASK(state, index) {
+      Vue.delete(state.tasks, index);
     },
 
-    ADD_TODO(state,title) {
-      const todo = new Todo({title});
-      state.todos.push(todo);
+    ADD_TASK(state,title) {
+      const task = new Task({title});
+      state.tasks.push(task);
     },
 
     SET_FILTER(state,type) {
@@ -60,19 +60,19 @@ const mutations = {
 }
 
 const actions = {
-  setChangeTodo({ commit }, payload) {
-    commit("SET_CHANGE_TODO", payload);
+  setChangeTask({ commit }, payload) {
+    commit("SET_CHANGE_TASK", payload);
   },
 
-  addTodo({ commit }, title) {
-    commit("ADD_TODO", title);
+  addTask({ commit }, title) {
+    commit("ADD_TASK", title);
   },
 
-  removeTodo({ commit }, index) {
-    commit("REMOVE_TODO", index);
+  removeTask({ commit }, index) {
+    commit("REMOVE_TASK", index);
   },
 
-  changeFilter({commit}, type) {
+  changeFilter({ commit }, type) {
     commit("SET_FILTER", type)
 
   }
