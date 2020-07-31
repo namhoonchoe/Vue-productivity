@@ -6,14 +6,14 @@
         <section class="inProgress">
            <taskList v-bind:boardState = inProgress />
         </section>
-        <section class="completed">
-           <taskList  v-bind:boardState = completed />
+        <section class="Completed">
+           <taskList  v-bind:boardState = Completed />
        </section>
     </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 import taskList from './taskList.vue';
 
 export default {
@@ -21,10 +21,10 @@ export default {
         taskList
     },
     computed:{
-        ...mapState('Tasks',[
+        ...mapGetters('Tasks',[
             'Todo',
             'inProgress',
-            'completed'
+            'Completed'
         ])
     }
 }

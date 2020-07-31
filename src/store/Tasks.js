@@ -1,22 +1,42 @@
+import { defaultTask, saveStorage } from './defaultTask.js';
 
-class Task {
-    constructor({title ='' , status =''}) {
-        this.title = title;
-        this.status = status;
-    }
-}
+const plugins = [saveStorage]
+
 
 const state = { 
-    Todo:[ new Task({title:'',status:'todo'}) ],
-
-    inProgress: [ new Task({title:'',status:'inProgress'}) ],
-
-    completed: [ new Task({title:'',status:'completed'}) ]   
+    tasks:defaultTask
 }
 
+const getters = {
+    Todo(state) {
+        return state.tasks.filter(task => task.status === "Todo")
+    },
+
+    inProgress(state){
+        return state.tasks.filter(task => task.status === "inProgress")
+    },
+
+    Completed(state){
+        return state.tasks.filter(task => task.status === "Completed")
+    },
+
+    countTodo() {
+        return state.tasks.filter(task => task.status === "Todo").length;
+    },
+
+    countInprogress() {
+        return state.tasks.filter(task => task.status === "inProgress").length;
+    },
+
+    countCompleted() {
+        return state.tasks.filter(task => task.status === "Completed").length;
+    }
+
+}
 
 export default {
-    Task,
     namespaced:true,
+    plugins,
+    getters,
     state
 }

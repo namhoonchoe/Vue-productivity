@@ -7,9 +7,9 @@
             <section class="timer">
               <Timer/>
             </section>
-            <section class="inProgrss">
-                <taskList/>
-            </section>
+            <section class="inProgress">
+                <taskList v-bind:boardState = inProgress />
+             </section>
         </body>
     </div>
 </template>
@@ -18,11 +18,18 @@
 import pageheader from '../components/PageHeader.vue'
 import taskList from '../components/KanbanBoard/taskList.vue'
 import Timer from '../components/PomodoroTimer/Timer.vue'
+import { mapGetters } from 'vuex';
+
 export default {
     components: {
         pageheader,
         Timer,
         taskList
+    },
+    computed: {
+        ...mapGetters('Tasks',[
+            'inProgress'
+        ])
     }
 }
 </script>
