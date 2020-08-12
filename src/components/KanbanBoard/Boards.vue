@@ -1,13 +1,16 @@
 <template>
     <div class="boards">
         <section class="Todo">
-           <taskList v-bind:boardState = Todo />
+           <taskList :boardState = Todo
+                     :boardTitle = boardTitle[0] />
         </section>
         <section class="inProgress">
-           <taskList v-bind:boardState = inProgress />
+           <taskList :boardState = inProgress 
+                     :boardTitle = boardTitle[1] />
         </section>
         <section class="Completed">
-           <taskList  v-bind:boardState = Completed />
+           <taskList  :boardState = Completed 
+                      :boardTitle = boardTitle[2] />
        </section>
     </div>
 </template>
@@ -19,6 +22,11 @@ import taskList from './taskList.vue';
 export default {
     components: {
         taskList
+    },
+    data(){
+        return {
+            boardTitle:["Todo","inProgress","Completed"]
+        }
     },
     computed:{
         ...mapGetters('Tasks',[

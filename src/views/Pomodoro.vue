@@ -8,7 +8,8 @@
               <Timer/>
             </section>
             <section class="inProgress">
-                <taskList v-bind:boardState = inProgress />
+                <taskList :boardState = inProgress 
+                          :boardTitle = boardTitle />
              </section>
         </body>
     </div>
@@ -25,6 +26,11 @@ export default {
         pageheader,
         Timer,
         taskList
+    },
+    data(){
+        return {
+            boardTitle:"inProgress",
+        }
     },
     computed: {
         ...mapGetters('Tasks',[

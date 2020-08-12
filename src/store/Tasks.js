@@ -1,7 +1,9 @@
-import { defaultTask, saveStorage } from './defaultTask.js';
+import Vue from 'vue';
+import { Task , defaultTask, saveStorage } from './defaultTask.js';
 
-const plugins = [saveStorage]
-
+const plugins = {
+    saveStorage
+}
 
 const state = { 
     tasks:defaultTask
@@ -31,12 +33,32 @@ const getters = {
     countCompleted() {
         return state.tasks.filter(task => task.status === "Completed").length;
     }
+}
+const  mutations ={
+    ADD_TASK(state, {title , status}) {
+      const task = new Task( { title, status } );
+      state.tasks.push(task);
+    },
 
+    REMOVE_TASK(state, index) {
+        Vue.delete(state.todos, index);
+    }
 }
 
+const actions = {
+    addTask( { commit }, {title,status} ) {
+        commit("ADD_TASK", {title, status} );
+    },
+
+    removeTask( { commit }, index) {
+        commit("REMOVE_TASK", index);
+    }
+}
 export default {
     namespaced:true,
     plugins,
     getters,
+    mutations,
+    actions,
     state
 }
