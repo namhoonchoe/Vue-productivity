@@ -3,45 +3,31 @@
         <p class="board-title" >
            {{boardTitle}}
         </p>
+        <boardFilter/>
         <ul>
         </ul>
-        <boardFilter/>
-       <form class="add-task" @submit.prevent="addTask">
-          <span class="material-icons">
-            add_circle_outline
-          </span>
-          <input type="text" 
-                 v-model="title" required
-                 placeholder="Add Your task">             
-       </form>
+        <addTask :boardTitle = taskStatus />
     </div>
 </template>
 
 <script>
 import boardFilter from './boardFilter.vue';
+import addTask from './addTask.vue';
 
 export default {
     components: {
         boardFilter,
+        addTask
     },
 
     props:['boardState','boardTitle'],
 
     data() {
         return {
-            title:"",
-            status:this.boardState[0].status 
-        };
+           taskStatus:this.boardTitle
+        }
     },
-    methods:{
-       addTask(event) {
-        this.$store.dispatch('Tasks/addTask', {
-            title:this.title,
-            status:this.status
-        });
-        event.currentTarget.reset();
-    }
-    },
+    
 
     
 };
