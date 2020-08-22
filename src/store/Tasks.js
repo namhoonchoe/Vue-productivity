@@ -1,13 +1,11 @@
 import Vue from 'vue';
-import { Task , defaultTask, saveStorage } from './defaultTask.js';
+import { Task, defaultTask } from './defaultTask.js';
 
-const plugins = {
-    saveStorage
-}
 
 const state = { 
     tasks:defaultTask
 }
+
 
 const getters = {
     Todo(state) {
@@ -34,7 +32,7 @@ const getters = {
         return state.tasks.filter(task => task.status === "Completed").length;
     }
 }
-const  mutations ={
+const mutations = {
     ADD_TASK(state, {title , status}) {
       const task = new Task( { title, status } );
       state.tasks.push(task);
@@ -47,16 +45,15 @@ const  mutations ={
 
 const actions = {
     addTask( { commit }, {title,status} ) {
-        commit("ADD_TASK", {title, status} );
+        commit( "ADD_TASK", {title, status} );
     },
 
     removeTask( { commit }, index) {
-        commit("REMOVE_TASK", index);
+        commit( "REMOVE_TASK", index );
     }
 }
 export default {
     namespaced:true,
-    plugins,
     getters,
     mutations,
     actions,

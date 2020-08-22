@@ -11,12 +11,12 @@
 
 <script>
 export default {
-    props:['boardTitle'],
+    props:['state'],
 
      data() {
         return {
             title:"",
-            status:this.boardTitle
+            status:this.state
         };
     },
     methods:{

@@ -1,10 +1,11 @@
 <template>
-    <p>Task no#</p>
+    <p>{{this.show.title}}</p>
 </template>
 
 <script>
-export default {
 
+export default {
+    props:['show','index'],   
 }
 </script>
 

@@ -4,19 +4,20 @@
            {{boardTitle}}
         </p>
         <boardFilter/>
-        <ul>
-        </ul>
-        <addTask :boardTitle = taskStatus />
+        <taskCard v-for ="( task, index ) in tasks" :key = "task.id" :index="index" :show = task />
+        <addTask :state = taskStatus />
     </div>
 </template>
 
 <script>
 import boardFilter from './boardFilter.vue';
+import taskCard from './taskCard.vue';
 import addTask from './addTask.vue';
 
 export default {
     components: {
         boardFilter,
+        taskCard,
         addTask
     },
 
@@ -24,6 +25,7 @@ export default {
 
     data() {
         return {
+           tasks:this.boardState,
            taskStatus:this.boardTitle
         }
     },
