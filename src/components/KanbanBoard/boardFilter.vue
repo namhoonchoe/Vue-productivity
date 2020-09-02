@@ -1,13 +1,12 @@
 <template>
-    <div>filter</div>
+  <div>filter</div>
 </template>
 
 <script>
 export default {
-    props:['receivedStatus']
-}
+  props: ["receivedStatus"],
+};
 </script>
 
 <style>
-
 </style>

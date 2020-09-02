@@ -4,7 +4,7 @@
            {{boardTitle}}
         </p>
         <boardFilter/>
-        <taskCard v-for ="( task, index ) in tasks" :key = "task.id" :index="index" :show = task />
+        <taskCard v-for ="( task, index ) in boardState" :key = "task.id" :index="index" :show = task />
         <addTask :state = taskStatus />
     </div>
 </template>
@@ -25,10 +25,10 @@ export default {
 
     data() {
         return {
-           tasks:this.boardState,
            taskStatus:this.boardTitle
         }
-    },
+    }
+
     
 
     
