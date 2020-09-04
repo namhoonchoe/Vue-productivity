@@ -12,14 +12,13 @@ export default {
   data() {
     return {
       title: "",
-      status: this.state,
     };
   },
   methods: {
     addTask(event) {
       this.$store.dispatch("Tasks/addTask", {
         title: this.title,
-        status: this.status,
+        status: this.state,
       });
       event.currentTarget.reset();
     },
