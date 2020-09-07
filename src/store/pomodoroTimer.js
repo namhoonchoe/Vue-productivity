@@ -1,42 +1,34 @@
 const state = {
-  status: "work",
-  time: {
-    work: 1500,
-    rest: 300,
-  },
-  timer: null,
-  startTimer: false,
+  count: false,
+  pause: false,
+  time: 1500,
 };
 
 const getters = {
   displayTime(state) {
-    let min = Math.floor(state.time[state.status] / 60);
-    let sec = state.time[state.status] % 60;
+    let min = Math.floor(state.time / 60);
+    let sec = state.time % 60;
     return `${min < 10 ? 0 : ""}${min}:${sec < 10 ? 0 : ""}${sec}`;
   },
 };
 
 const mutations = {
-  updateStatus(state, payload) {
-    state.status = payload;
+  startTimer(state) {
+    state.count = true;
+    state.pause = false;
+    state.timer = setInterval(() => state.time--, 1000);
   },
 
-  timeHandler(state) {
-    state.startTimer = !state.startTimer;
+  pauseTimer(state) {
+    state.count = false;
+    state.pause = true;
+    state.timer = clearInterval(state.timer);
   },
 
-  setTimer(state) {
-    state.timer = setInterval(() => state.time[state.status]--, 1000);
-  },
-
-  stopTimer(state) {
-    clearInterval(state.timer);
-  },
-
-  resetTime(state) {
-    state.startTimer = false;
-    state.time.work = 1500;
-    state.time.rest = 300;
+  resetTimer(state) {
+    state.count = false;
+    state.pause = false;
+    state.time = 1500;
   },
 };
 

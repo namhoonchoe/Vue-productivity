@@ -1,20 +1,17 @@
 <template>
   <div class="board">
     <p class="board-title">{{boardTitle}}</p>
-    <boardFilter />
     <taskCard v-for="task in boardState" :key="task.id" :show="task" />
     <addTask :state="boardTitle" />
   </div>
 </template>
 
 <script>
-import boardFilter from "./boardFilter.vue";
 import taskCard from "./taskCard.vue";
 import addTask from "./addTask.vue";
 
 export default {
   components: {
-    boardFilter,
     taskCard,
     addTask,
   },

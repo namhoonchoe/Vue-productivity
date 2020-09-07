@@ -1,12 +1,20 @@
 <template>
   <div>
-    <p>{{this.title}}</p>
-    <button class="edit icon" @click="toggleEdit">
-      <i class="material-icons">edit</i>
-    </button>
-    <button class="delete icon" @click="removeTodo">
-      <i class="material-icons">delete</i>
-    </button>
+    <div class="task" v-show="!isEdit">
+      <p>{{ this.title }}</p>
+      <button class="edit icon" @click="toggleEdit">
+        <i class="material-icons">edit</i>
+      </button>
+      <button class="delete icon" @click="removeHandler">
+        <i class="material-icons">delete</i>
+      </button>
+    </div>
+    <form class="task-form" v-show="isEdit" @submit.prevent="editHandler">
+      <input type="text" v-model="title" required />
+      <button class="icon" type="submit">
+        <i class="material-icons">save</i>
+      </button>
+    </form>
   </div>
 </template>
 
@@ -28,10 +36,9 @@ export default {
   },
   computed: {
     ...mapState("Tasks", ["tasks"]),
-    getId() {
-      const tasks = this.tasks;
-      const [target] = tasks.filter((task) => task.id === this.id);
-      const search = tasks.findIndex((i) => i.id === target.id);
+    getIndex() {
+      const [target] = this.tasks.filter((task) => task.id === this.id);
+      const search = this.tasks.findIndex((i) => i.id === target.id);
       return search;
     },
   },
@@ -40,12 +47,19 @@ export default {
     toggleEdit() {
       this.isEdit = !this.isEdit;
     },
-    removeTodo() {
-      this.removeTask(this.getId);
+    removeHandler() {
+      this.removeTask(this.getIndex);
+    },
+    editHandler() {
+      this.toggleEdit();
+      const payload = {
+        title: this.title,
+        index: this.getIndex,
+      };
+      this.editTask(payload);
     },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>
