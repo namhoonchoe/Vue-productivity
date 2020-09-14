@@ -22,7 +22,7 @@
 import { mapState, mapActions } from "vuex";
 export default {
   props: {
-    show: {
+    task: {
       type: Object,
     },
   },
@@ -30,8 +30,8 @@ export default {
   data() {
     return {
       isEdit: false,
-      title: this.show.title,
-      id: this.show.id,
+      title: this.task.title,
+      id: this.task.id,
     };
   },
   computed: {

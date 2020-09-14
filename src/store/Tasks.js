@@ -49,6 +49,10 @@ const actions = {
   editTask({ commit }, payload) {
     commit("EDIT_TASK", payload);
   },
+
+  changeStatus({ commit }, payload) {
+    commit("CHANGE_TASK", payload);
+  },
 };
 export default {
   namespaced: true,
