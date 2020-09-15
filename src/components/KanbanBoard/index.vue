@@ -1,13 +1,28 @@
 <template>
   <div class="boards">
     <section class="Todo">
-      <taskList :boardState="Todo" :taskStatus="taskStatus[0]" />
+      <taskList
+        :title="boardTitle[0]"
+        :boardState="Todo"
+        :taskStatus="taskStatus[0]"
+        class="taskList"
+      />
     </section>
     <section class="inProgress">
-      <taskList :boardState="inProgress" :taskStatus="taskStatus[1]" />
+      <taskList
+        :title="boardTitle[1]"
+        :boardState="inProgress"
+        :taskStatus="taskStatus[1]"
+        class="taskList"
+      />
     </section>
     <section class="Completed">
-      <taskList :boardState="Completed" :taskStatus="taskStatus[2]" />
+      <taskList
+        :title="boardTitle[2]"
+        :boardState="Completed"
+        :taskStatus="taskStatus[2]"
+        class="taskList"
+      />
     </section>
   </div>
 </template>
@@ -22,7 +37,8 @@ export default {
   },
   data() {
     return {
-      taskStatus: ["Todo", "inProgress", "Completed"],
+      taskStatus: [1, 2, 3],
+      boardTitle: ["Todo", "inProgress", "Completed"],
     };
   },
   computed: {

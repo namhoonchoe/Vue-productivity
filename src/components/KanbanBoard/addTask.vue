@@ -7,7 +7,9 @@
 
 <script>
 export default {
-  props: ["state"],
+  props: {
+    statusIndex: Number,
+  },
 
   data() {
     return {
@@ -18,7 +20,7 @@ export default {
     addTask(event) {
       this.$store.dispatch("Tasks/addTask", {
         title: this.title,
-        status: this.state,
+        statusIndex: this.statusIndex,
       });
       event.currentTarget.reset();
     },

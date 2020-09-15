@@ -7,20 +7,20 @@ const state = {
 
 const getters = {
   Todo(state) {
-    return state.tasks.filter((task) => task.status === "Todo");
+    return state.tasks.filter((task) => task.statusIndex === 1);
   },
 
   inProgress(state) {
-    return state.tasks.filter((task) => task.status === "inProgress");
+    return state.tasks.filter((task) => task.statusIndex === 2);
   },
 
   Completed(state) {
-    return state.tasks.filter((task) => task.status === "Completed");
+    return state.tasks.filter((task) => task.statusIndex === 3);
   },
 };
 const mutations = {
-  ADD_TASK(state, { title, status }) {
-    const task = new Task({ title, status });
+  ADD_TASK(state, { title, statusIndex }) {
+    const task = new Task({ title, statusIndex });
     state.tasks.push(task);
   },
   REMOVE_TASK(state, payload) {
@@ -35,11 +35,19 @@ const mutations = {
     };
     Vue.set(state.tasks, index, task);
   },
+  CHANGE_STATUS(state, payload) {
+    const { index, statusId } = payload;
+    const task = {
+      ...state.tasks[index],
+    };
+    task.statusId = statusId;
+    Vue.set(state.tasks, index, task);
+  },
 };
 
 const actions = {
-  addTask({ commit }, { title, status }) {
-    commit("ADD_TASK", { title, status });
+  addTask({ commit }, { title, statusIndex }) {
+    commit("ADD_TASK", { title, statusIndex });
   },
 
   removeTask({ commit }, payload) {
@@ -51,7 +59,7 @@ const actions = {
   },
 
   changeStatus({ commit }, payload) {
-    commit("CHANGE_TASK", payload);
+    commit("CHANGE_STATUS", payload);
   },
 };
 export default {
