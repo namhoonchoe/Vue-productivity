@@ -1,7 +1,15 @@
 <template>
-  <form class="add-task" @submit.prevent="addTask">
-    <span class="material-icons">add_circle_outline</span>
-    <input type="text" v-model="title" required placeholder="Add Your task" />
+  <form class="add__task" @submit.prevent="addTask">
+    <span class="material-icons">
+      library_add
+    </span>
+    <input
+      class="task__input"
+      type="text"
+      v-model="title"
+      required
+      placeholder="Add Your task"
+    />
   </form>
 </template>
 
@@ -28,5 +36,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.add__task {
+  display: flex;
+  align-items: stretch;
+  margin-right: 0.25rem;
+}
+.task__input {
+  background-color: #e2e8f0;
+  border: none;
+}
 </style>

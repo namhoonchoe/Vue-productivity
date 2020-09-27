@@ -1,7 +1,12 @@
 <template>
   <div class="board">
-    <p class="board-title">{{ title }}</p>
-    <taskCard v-for="task in boardState" :key="task.id" :task="task" class="taskcard" />
+    <p class="board__title">{{ title }}</p>
+    <taskCard
+      v-for="task in boardState"
+      :key="task.id"
+      :task="task"
+      class="task__card"
+    />
     <addTask :statusIndex="taskStatus" />
   </div>
 </template>
@@ -32,21 +37,28 @@ export default {
 
 <style scoped>
 .board {
-  display: block;
-  border: 2px green solid;
-  border-radius: 5px;
-  padding: 5px;
-}
-.add-task {
   display: flex;
-  justify-content: center;
-  padding-bottom: 5px;
+  flex-direction: column;
+  max-width: 20rem;
+  background-color: #e2e8f0;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
 }
-.taskcard {
+
+.board__title {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  font-weight: 600;
+  margin: 0.5rem;
+}
+
+.task__card {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
   border-radius: 3px;
-  margin: 5px;
-  border: 0.5px black solid;
+  border-bottom: solid;
+  border-bottom-color: #cbd5e0;
+  margin: 0.1rem;
 }
 </style>

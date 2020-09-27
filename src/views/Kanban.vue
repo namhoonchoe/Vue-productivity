@@ -1,12 +1,8 @@
 <template>
-<div class="kanban">
-  <header>
+  <div class="kanban">
     <pageheader />
-  </header>
-  <body>
     <KanbanBoard />
-  </body>
-</div>
+  </div>
 </template>
 
 <script>
@@ -22,11 +18,13 @@ export default {
 </script>
 
 <style scoped>
-header {
+.kanban {
   position: absolute;
   top: 0;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  bottom: 0;
+  background-color: #3182ce;
+  background-position: center;
+  width: 100vw;
+  height: 100%;
 }
 </style>

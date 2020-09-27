@@ -1,17 +1,15 @@
 <template>
-<div class="pomodoro">
-  <header>
+  <div class="pomodoro">
     <pageheader />
-  </header>
-  <body>
-    <section class="timer">
-      <Timer />
+    <section>
+      <div class="timer">
+        <Timer />
+      </div>
+      <div class="inProgress">
+        <taskList :boardState="inProgress" :title="boardTitle" />
+      </div>
     </section>
-    <section class="inProgress">
-      <taskList :boardState="inProgress" :boardTitle="boardTitle" />
-    </section>
-  </body>
-</div>
+  </div>
 </template>
 
 <script>
@@ -28,7 +26,7 @@ export default {
   },
   data() {
     return {
-      boardTitle: "inProgress",
+      boardTitle: "In Progress",
     };
   },
   computed: {
@@ -38,18 +36,23 @@ export default {
 </script>
 
 <style scoped>
-header {
+.pomodoro {
   position: absolute;
   top: 0;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  bottom: 0;
+  background-color: #3182ce;
+  background-position: center;
+  width: 100vw;
+  height: 100%;
 }
 
-body {
+section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin: 10px 20px;
+  margin: 5rem 2.5rem;
+  gap: 10rem;
+}
+.timer {
+  margin-left: 10rem;
 }
 </style>

@@ -1,17 +1,27 @@
 <template>
-  <div>
-    <div class="task" v-show="!isEdit">
-      <p>{{ this.title }}</p>
-      <span class="material-icons" @click="rollback">keyboard_arrow_left</span>
-      <button class="edit icon" @click="toggleEdit">
-        <i class="material-icons">edit</i>
-      </button>
-      <button class="delete icon" @click="removeHandler">
-        <i class="material-icons">delete</i>
-      </button>
-      <span class="material-icons" @click="proceed">keyboard_arrow_right</span>
+  <div class="task">
+    <div class="task__card" v-show="!isEdit">
+      <div class="task__card--move">
+        <span class="material-icons" @click="rollback"
+          >keyboard_arrow_left</span
+        >
+      </div>
+      <p class="task__card--item">{{ this.title }}</p>
+      <div class="task__card--icons">
+        <button class="edit icon" @click="toggleEdit">
+          <i class="material-icons">edit</i>
+        </button>
+        <button class="delete icon" @click="removeHandler">
+          <i class="material-icons">delete</i>
+        </button>
+      </div>
+      <div class="task__card--move">
+        <span class="material-icons" @click="proceed"
+          >keyboard_arrow_right</span
+        >
+      </div>
     </div>
-    <form class="task-form" v-show="isEdit" @submit.prevent="editHandler">
+    <form class="task__form" v-show="isEdit" @submit.prevent="editHandler">
       <input type="text" v-model="title" required />
       <button class="icon" type="submit">
         <i class="material-icons">save</i>
@@ -85,4 +95,58 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.task {
+  background-color: #fff;
+}
+.task__card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.25rem 0;
+  margin: 0.1rem;
+}
+
+.task__card--item {
+  position: relative;
+  left: 0px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-right: auto;
+}
+
+.task__card--icons i {
+  opacity: 0.1;
+}
+
+.task__card--icons i:hover {
+  opacity: 1;
+}
+
+.task__card--icons button {
+  background: 0 0;
+  border: none;
+  border-radius: 2px;
+}
+
+.task__form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.5rem;
+}
+.task__form input {
+  font-size: 1rem;
+  border: 0.1rem solid;
+  border-radius: 3px;
+  border-color: #cbd5e0;
+}
+.task__form button {
+  background: 0 0;
+  border: none;
+  opacity: 0.75;
+  border-radius: 2px;
+}
+</style>

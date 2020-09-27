@@ -1,27 +1,40 @@
 <template>
-<div>
-  <body>
-    Home Screen
+  <div class="home__screen">
     <clockContainer />
-  </body>
-  <section class="navigation">
-    <Navigation />
-  </section>
-</div>
+    <div class="nav">
+      <router-link to="/Kanban">
+        <p class="nav__title">Kanban</p>
+      </router-link>
+      <router-link to="/Pomodoro">
+        <p class="nav__title">Pomodoro</p>
+      </router-link>
+    </div>
+  </div>
 </template>
 
 <script>
-import Navigation from "../components/Navigation.vue";
 import clockContainer from "../components/clockContainer.vue";
 
 export default {
   name: "App",
   components: {
-    Navigation,
     clockContainer,
   },
 };
 </script>
 
-<style scoped>
+<style >
+.home__screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+.nav__title {
+  padding: 0.25rem;
+}
 </style>

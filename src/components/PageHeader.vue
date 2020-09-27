@@ -1,12 +1,8 @@
 <template>
   <div>
     <header class="header">
-      <section class="header__column">
-        <Navigation />
-      </section>
-      <section class="header__column">
-        <clockContainer />
-      </section>
+      <Navigation class="header__column" />
+      <clockContainer class="header__column" />
     </header>
   </div>
 </template>
@@ -28,11 +24,15 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 10px;
+  width: 100%;
+  background-color: #2b6cb0;
+  padding: 0.25rem;
 }
 
 .header__column {
   display: flex;
   justify-content: center;
+  padding: 0.25rem;
+  color: white;
 }
 </style>

@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       taskStatus: [1, 2, 3],
-      boardTitle: ["Todo", "inProgress", "Completed"],
+      boardTitle: ["To do", "In Progress", "Completed"],
     };
   },
   computed: {
@@ -51,7 +51,7 @@ export default {
 .boards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin: 10px 20px;
-  gap: 20px;
+  margin: 5rem;
+  gap: 10rem;
 }
 </style>
