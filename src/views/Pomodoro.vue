@@ -1,17 +1,15 @@
 <template>
-  <transition name="slide-fade">
-    <div class="pomodoro">
-      <pageheader />
-      <section>
-        <div class="timer">
-          <Timer />
-        </div>
-        <div class="inProgress">
-          <taskList :boardState="inProgress" :title="boardTitle" />
-        </div>
-      </section>
-    </div>
-  </transition>
+  <div class="pomodoro">
+    <pageheader />
+    <section>
+      <div class="timer">
+        <Timer />
+      </div>
+      <div class="inProgress">
+        <taskList :boardState="inProgress" :title="boardTitle" />
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -38,16 +36,6 @@ export default {
 </script>
 
 <style scoped>
-.slide-fade-enter-active {
-  transition: all 0.5s ease;
-}
-.slide-fade-leave-active {
-  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-fade-enter, .slide-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
 .pomodoro {
   position: absolute;
   top: 0;

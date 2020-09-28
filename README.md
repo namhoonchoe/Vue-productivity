@@ -3,10 +3,9 @@
 Productivity app with vue js
 
 ## Kanban Board
-  - [ ] kanban board
-  - [ ] drag and drop
-  
+
+- [ ] kanban board
 
 ## Pomodoro Timer
-  - [ ] timer
-  
+
+- [ ] timer
