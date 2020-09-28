@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <header class="header">
-      <Navigation class="header__column" />
-      <clockContainer class="header__column" />
-    </header>
-  </div>
+  <header class="header">
+    <div class="header__column">
+      <Navigation />
+    </div>
+    <clockContainer class="header__column" />
+  </header>
 </template>
 
 <script>
@@ -23,16 +23,15 @@ export default {
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
+  height: auto;
   background-color: #2b6cb0;
-  padding: 0.25rem;
 }
 
 .header__column {
-  display: flex;
-  justify-content: center;
-  padding: 0.25rem;
   color: white;
+  font-weight: 500;
+  padding: 1rem;
 }
 </style>

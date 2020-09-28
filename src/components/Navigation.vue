@@ -18,18 +18,16 @@ export default {};
 
 <style scoped>
 .nav {
-  display: flex;
-  padding: 0 0.25rem;
+  position: relative;
+  top: 0;
+  margin: 0;
 }
-
 .nav__item {
-  padding: 0.25rem;
   color: white;
+  padding: 0.5rem;
 }
 
 .router-link-exact-active {
-  border-bottom: 2px;
-  border-style: solid;
-  border-bottom-color: white;
+  font-weight: 600;
 }
 </style>
