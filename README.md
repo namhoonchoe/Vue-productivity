@@ -2,10 +2,11 @@
 
 Productivity app with vue js
 
-## Kanban Board
-
 - [ ] kanban board
+- [ ] Pomodorotimer
+ 
+ # Preview:
+ 
+ Try it on netlify 
+ https://adoring-khorana-8d89f3.netlify.app
 
-## Pomodoro Timer
-
-- [ ] timer
